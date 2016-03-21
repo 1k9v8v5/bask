@@ -12,38 +12,55 @@ public class db extends SQLiteOpenHelper implements Constants
 		super(context, name, factory, version);
     }
 	public db (Context context){
-		super(context,DB_NAME,null,11);
+		super(context,DB_NAME,null,20);
 	}
 	@Override
 	public void onCreate(SQLiteDatabase p1)
 	{
+
+		p1.execSQL("PRAGMA foreign_keys = ON;"); // вкл. внеш. ключ
+
+		p1.execSQL("create table "+ DB_TABLE_LIST + " ("
+				+ COLUMN_ID_LIST + " integer primary key autoincrement, "
+				+ COLUMN_DATE_LIST + " integer, "
+				+ COLUMN_NAME_LIST + " text" + ");");
+
+		p1.execSQL("insert into list values(1," +
+				(new java.util.Date().getTime()) + " ,'list');");
+
 		p1.execSQL("create table "+ DB_TABLE_UNIT + " ("
 				   + COLUMN_ID_UNIT + " integer primary key autoincrement, " 
 				   + COLUMN_NAME_UNIT + " text " + ");");
-		
-		//p1.execSQL("insert into DB_TABLE_UNIT values(1,`шт`)");		   
-				   
+
+		p1.execSQL("insert into unit values(1,'шт.'),"+
+				 "(2,'кг.')," +
+				 "(3,'грамм.')," +
+				 "(4,'л.')," +
+				 "(5,'мл.');");
+
 		p1.execSQL("create table "+ DB_TABLE_PROD + " ("
-				   + COLUMN_ID_PROD + " integer primary key autoincrement, " 
-				   + COLUMN_DATE_PROD + " integer, "
+				   + COLUMN_ID_PROD + " integer primary key autoincrement, "
+				   + COLUMN_ID_LIST_PROD + " integer, "
 				   + COLUMN_ID_UNIT_PROD + " integer, "
-				   + COLUMN_LIST_PROD + " text, "
 				   + COLUMN_NAME_PROD + " text, "
 				   + COLUMN_COUNT_PROD + " integer, "
-				   + COLUMN_PRICE_PROD  + " real, " 
+				   + COLUMN_PRICE_PROD  + " real, "
+				   + "foreign key( " + COLUMN_ID_LIST_PROD + " ) references "
+				   + DB_TABLE_LIST + "(" + COLUMN_ID_LIST + ") on delete cascade,"
 				   + "foreign key( " + COLUMN_ID_UNIT_PROD + " ) references "
-				   + DB_TABLE_UNIT + "(" + COLUMN_ID_UNIT + ")" + ");");
-		
-		//p1.execSQL("insert into DB_TABLE_PROD values(1,(" +
+				   + DB_TABLE_UNIT + "(" + COLUMN_ID_UNIT + ") on update cascade" + ");");
 
-			//	   (new java.util.Date()).getTime() + ") ,а,в,3,1,500)");	   
-				   
+		p1.execSQL("insert into product values(1,1,1,'а',3,500.12);");
+
 	}
+
 
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int p2, int p3)
 	{
 		// TODO: Implement this method
+		db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE_LIST);
+		db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE_UNIT);
 		db.execSQL("DROP TABLE IF EXISTS " + DB_TABLE_PROD);
 		onCreate(db);
 	}
