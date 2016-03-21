@@ -1,13 +1,15 @@
 package com.example.kv.bask;
 
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.os.*;
 import android.util.Log;
 import android.database.sqlite.*;
 import android.content.*;
 import android.app.*;
 import android.database.Cursor;
 import java.sql.Date;
+import android.widget.*;
+import android.view.*;
 public class bask extends AppCompatActivity implements Constants{
 	private db dbcreate;
 	String LOG_TAG = "Log";
@@ -53,5 +55,11 @@ public class bask extends AppCompatActivity implements Constants{
 			Log.d(LOG_TAG,"id = " + cursorunit.getString(idColIndex) + " | "
 					 +cursorunit.getString(nameColIndex));
 		}
+	
 }
+	public void onButtonClick(View view)
+	{
+		Intent plist = new Intent(bask.this,Plist.class);
+		startActivity(plist);
+	}
 }

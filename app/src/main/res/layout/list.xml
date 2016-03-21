@@ -1,0 +1,26 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" 
+	android:layout_height="wrap_content" android:layout_weight="1">
+	<LinearLayout android:id="@+id/linearLayout"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical" android:padding="5dp">
+		<TextView android:id="@+id/listtext" 
+			android:textSize="18sp"
+			android:paddingTop="10dp" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:imeOptions="actionNext" 
+			android:text="@string/listtext"></TextView>
+		<EditText android:id="@+id/listedit" 
+			android:layout_width="match_parent" 
+			android:layout_height="wrap_content" 
+			android:imeOptions="actionNext"
+			android:inputType="textPostalAddress|textCapWords"></EditText>	
+		<Button android:id="@+id/addbuttonlist" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:layout_gravity="center_horizontal"
+			android:text="@string/add_record">+</Button>
+	</LinearLayout>
+</ScrollView>

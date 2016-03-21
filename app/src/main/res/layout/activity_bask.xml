@@ -12,7 +12,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="onButtonClick1"
+        android:onClick="onButtonClick"
         android:text="@string/add_record">
     </Button>
 </RelativeLayout>
