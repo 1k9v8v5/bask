@@ -2,4 +2,5 @@
     <string name="app_name">bask</string>
     <string name="add_record">+</string>
 	<string name="listtext">Список:</string>
+	<string name="listdate">Дата:</string>
 </resources>

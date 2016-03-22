@@ -1,0 +1,40 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent" 
+	android:layout_height="wrap_content" android:layout_weight="1">
+	<LinearLayout android:id="@+id/linearLayout1"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical" android:padding="5dp">
+		<TextView android:id="@+id/listName" 
+			android:color="@android:color/black" android:textSize="18sp"
+			android:paddingTop="10dp" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:imeOptions="actionNext" 
+			android:text="@string/listtext"></TextView>	
+		<TextView android:id="@+id/listNameExt" 
+			android:color="@android:color/black" android:textSize="18sp"
+			android:paddingTop="10dp" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:imeOptions="actionNext" ></TextView>	
+		<TextView android:id="@+id/listDate" 
+			android:color="@android:color/black" android:textSize="18sp"
+			android:paddingTop="10dp" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:imeOptions="actionNext" 
+			android:text="@string/listdate"></TextView>	
+		<Button android:id="@+id/addbuttonlistSave" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:onClick="onSave"
+			android:layout_gravity="center_horizontal"
+			android:text="@string/add_record"></Button>
+		<Button android:id="@+id/addbuttonlistClose" 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="15dp"
+			android:onClick="onClose"
+			android:layout_gravity="center_horizontal"
+			android:text="@string/add_record"></Button>
+	</LinearLayout>
+</ScrollView>
