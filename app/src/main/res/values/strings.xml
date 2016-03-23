@@ -3,4 +3,8 @@
     <string name="add_record">+</string>
 	<string name="listtext">Список:</string>
 	<string name="listdate">Дата:</string>
+	<string name="add_close">x</string>
+	<string name="hint_namelist">Товар:</string>
+	<string name="hint_countlist">Количество:</string>
+	<string name="hint_pricelist">Цена:</string>
 </resources>

@@ -10,6 +10,7 @@ import android.database.Cursor;
 import java.sql.Date;
 import android.widget.*;
 import android.view.*;
+import java.text.SimpleDateFormat;
 public class bask extends AppCompatActivity implements Constants{
 	private db dbcreate;
 	String LOG_TAG = "Log";
@@ -41,12 +42,14 @@ public class bask extends AppCompatActivity implements Constants{
 		Cursor cursor = base.query(DB_TABLE_PROD, FROM_PROD, null, null, null, null, null);
 		while(cursor.moveToNext()) {
 			int idColIndex = cursor.getColumnIndex("_id");
-		//	long dateColIndex = cursor.getLong(1);
+			long dateColIndex = cursor.getLong(1);
 			int priceColIndex = cursor.getColumnIndex("price");
-		//	date = new Date(dateColIndex);
+		    date = new Date(dateColIndex);
+			SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
+			String strTime = simpleDateFormat.format(date);
 			Log.d(LOG_TAG,"id = " + cursor.getString(idColIndex) + " | " +
-					 +Double.parseDouble(cursor.getString(priceColIndex)));
-		//		  "date = " + date + " " +Float.parseFloat(cursor.getString(priceColIndex)));
+			//		 +Double.parseDouble(cursor.getString(priceColIndex)));
+			  "date = " + date+ " " +Float.parseFloat(cursor.getString(priceColIndex)));
     }
 		Cursor cursorunit = base.query(DB_TABLE_UNIT, FROM_UNIT, null, null, null, null, null);
 		while(cursorunit.moveToNext()) {

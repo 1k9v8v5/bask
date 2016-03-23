@@ -22,6 +22,26 @@
 			android:layout_height="wrap_content" 
 			android:imeOptions="actionNext" 
 			android:text="@string/listdate"></TextView>	
+		<EditText android:id="@+id/nameListEditText"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" 
+			android:imeOptions="actionNext" android:hint="@string/hint_namelist"
+			android:inputType="textPersonName|textCapWords"></EditText>
+		<EditText android:id="@+id/countListEditText"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" 
+			android:imeOptions="actionNext" android:hint="@string/hint_countlist"
+			android:inputType="phone"></EditText>
+		<EditText android:layout_width="wrap_content" 
+			android:id="@+id/priceEditText" 
+			android:layout_height="wrap_content"
+			android:inputType="numberDecimal" android:hint="@string/hint_pricelist">
+		</EditText>
+		<Spinner
+			android:id="@+id/spinner"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+		</Spinner>
 		<Button android:id="@+id/addbuttonlistSave" 
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
@@ -35,6 +55,6 @@
 			android:layout_marginTop="15dp"
 			android:onClick="onClose"
 			android:layout_gravity="center_horizontal"
-			android:text="@string/add_record"></Button>
+			android:text="@string/add_close"></Button>
 	</LinearLayout>
 </ScrollView>
