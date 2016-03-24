@@ -13,8 +13,7 @@ import android.view.*;
 import java.text.SimpleDateFormat;
 public class bask extends AppCompatActivity implements Constants{
 	//private db dbcreate;
-	private dbmanag dbcreate;
-	String LOG_TAG = "Log";
+	
 	/*private static String[] FROM_PROD = {COLUMN_ID_PROD,COLUMN_ID_LIST_PROD,
 		COLUMN_NAME_PROD,COLUMN_COUNT_PROD,COLUMN_ID_UNIT_PROD,COLUMN_PRICE_PROD};
 	private static String[] FROM_UNIT = {COLUMN_ID_UNIT,COLUMN_NAME_UNIT};
@@ -23,16 +22,7 @@ public class bask extends AppCompatActivity implements Constants{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bask);
-		dbcreate = new dbmanag(this);
-		dbcreate.open();
-		Cursor cursorunit=dbcreate.getAllData();
-		while(cursorunit.moveToNext()) {
-			int idColIndex = cursorunit.getColumnIndex("unitID");;
-			int nameColIndex = cursorunit.getColumnIndex("name");
-			Log.d(LOG_TAG,"id = " + cursorunit.getString(idColIndex) + " | "
-					+cursorunit.getString(nameColIndex));
-		}
-		dbcreate.close();
+		
 /*        	dbcreate = new db(this);
 
 		String dname =DB_TABLE_UNIT;

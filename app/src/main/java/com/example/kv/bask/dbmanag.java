@@ -30,7 +30,7 @@ public class dbmanag implements Constants {
         if (db!=null) db.close();
     }
     // получить все данные из таблицы DB_TABLE_UNIT
-    public Cursor getAllData() {
+    public Cursor getAllDataUnit() {
         //return base.query(DB_TABLE_PROD, null, null, null, null, null, null);
          return base.query(DB_TABLE_UNIT, FROM_UNIT, null, null, null, null, null);
     }
