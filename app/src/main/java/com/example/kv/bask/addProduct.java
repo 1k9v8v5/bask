@@ -34,22 +34,26 @@ import java.text.*;public class addProduct extends Activity
 		tdate = (TextView) findViewById(R.id.listDate);
 		tdate.setText(strTime);
 		// адаптер
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+     //   ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+		CustomAdapter adapter = new CustomAdapter(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
         // заголовок
-        spinner.setPrompt("Title");
+     /*   spinner.setPrompt("Title");
         // выделяем элемент 
-     /*   spinner.setSelection(2);*/
+        spinner.setSelection(2);*/
         // устанавливаем обработчик нажатия
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
 				@Override
 				public void onItemSelected(AdapterView<?> parent, View view,
 										   int position, long id) {
 					// показываем позиция нажатого элемента
-					Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+					//Toast.makeText(getBaseContext(), "Position = " + position, Toast.LENGTH_SHORT).show();
+
+					// Set adapter flag that something has been chosen
+					CustomAdapter.flag = true;
 				}
 				@Override
 				public void onNothingSelected(AdapterView<?> arg0) {

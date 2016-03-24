@@ -12,22 +12,34 @@ import android.widget.*;
 import android.view.*;
 import java.text.SimpleDateFormat;
 public class bask extends AppCompatActivity implements Constants{
-	private db dbcreate;
+	//private db dbcreate;
+	private dbmanag dbcreate;
 	String LOG_TAG = "Log";
-	private static String[] FROM_PROD = {COLUMN_ID_PROD,COLUMN_ID_LIST_PROD,
+	/*private static String[] FROM_PROD = {COLUMN_ID_PROD,COLUMN_ID_LIST_PROD,
 		COLUMN_NAME_PROD,COLUMN_COUNT_PROD,COLUMN_ID_UNIT_PROD,COLUMN_PRICE_PROD};
 	private static String[] FROM_UNIT = {COLUMN_ID_UNIT,COLUMN_NAME_UNIT};
-	Date date;
+	Date date;*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bask);
-		dbcreate = new db(this);
+		setContentView(R.layout.activity_bask);
+		dbcreate = new dbmanag(this);
+		dbcreate.open();
+		Cursor cursorunit=dbcreate.getAllData();
+		while(cursorunit.moveToNext()) {
+			int idColIndex = cursorunit.getColumnIndex("unitID");;
+			int nameColIndex = cursorunit.getColumnIndex("name");
+			Log.d(LOG_TAG,"id = " + cursorunit.getString(idColIndex) + " | "
+					+cursorunit.getString(nameColIndex));
+		}
+		dbcreate.close();
+/*        	dbcreate = new db(this);
+
 		String dname =DB_TABLE_UNIT;
 		String b=this.getDatabasePath(dname).getAbsolutePath();
 		Log.d(LOG_TAG,b);
 		SQLiteDatabase base = dbcreate.getReadableDatabase();
-		/*ContentValues values = new ContentValues();
+*/		/*ContentValues values = new ContentValues();
 		values.put(COLUMN_NAME_UNIT, "нн");
 		base.insertOrThrow(DB_TABLE_UNIT, null, values);*/
 
@@ -38,7 +50,7 @@ public class bask extends AppCompatActivity implements Constants{
 				(new java.util.Date().getTime()) + " ,'1','а','в',3,500.12);");*/
 		/*base.execSQL("insert into list values(1," +
 				(new java.util.Date().getTime()) + " ,'list');");*/
-
+/*
 		Cursor cursor = base.query(DB_TABLE_PROD, FROM_PROD, null, null, null, null, null);
 		while(cursor.moveToNext()) {
 			int idColIndex = cursor.getColumnIndex("_id");
@@ -58,7 +70,8 @@ public class bask extends AppCompatActivity implements Constants{
 			Log.d(LOG_TAG,"id = " + cursorunit.getString(idColIndex) + " | "
 					 +cursorunit.getString(nameColIndex));
 		}
-	
+
+*/
 }
 	public void onButtonClick(View view)
 	{

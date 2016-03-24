@@ -32,16 +32,16 @@
 			android:layout_height="wrap_content" 
 			android:imeOptions="actionNext" android:hint="@string/hint_countlist"
 			android:inputType="phone"></EditText>
-		<EditText android:layout_width="wrap_content" 
-			android:id="@+id/priceEditText" 
-			android:layout_height="wrap_content"
-			android:inputType="numberDecimal" android:hint="@string/hint_pricelist">
-		</EditText>
 		<Spinner
 			android:id="@+id/spinner"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
 		</Spinner>
+		<EditText android:layout_width="wrap_content" 
+			android:id="@+id/priceEditText" 
+			android:layout_height="wrap_content"
+			android:inputType="numberDecimal" android:hint="@string/hint_pricelist">
+		</EditText>
 		<Button android:id="@+id/addbuttonlistSave" 
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"

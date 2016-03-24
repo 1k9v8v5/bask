@@ -11,10 +11,12 @@ public class db extends SQLiteOpenHelper implements Constants
 			  int version) {
 		super(context, name, factory, version);
     }
-	public db (Context context){
-		super(context,DB_NAME,null,20);
+/*	public db (Context context){
+		super(context,DB_NAME,null,DB_VERSION);
 	}
-	@Override
+
+*/
+@Override
 	public void onCreate(SQLiteDatabase p1)
 	{
 
