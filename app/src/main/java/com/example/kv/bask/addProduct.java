@@ -64,11 +64,11 @@ import java.text.*;public class addProduct extends Activity
 			myArrList.add(map);
 		}
 		dbcreate.close();
-		
-		/*for (HashMap.Entry entry : map.entrySet()) {
+		  
+		for (HashMap.Entry entry : map.entrySet()) {
 			Log.d(LOG_TAG,"Key: " + entry.getKey() + " Value: "
 							   + entry.getValue());
-		}*/
+		}
 		// Получаем набор элементов
 	/*	Set<HashMap.Entry<String,String >> set = map.entrySet();
 
