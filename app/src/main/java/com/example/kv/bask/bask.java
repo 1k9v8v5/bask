@@ -1,6 +1,6 @@
 package com.example.kv.bask;
 
-import android.support.v7.app.AppCompatActivity;
+//import android.support.v7.app.AppCompatActivity;
 import android.os.*;
 import android.util.Log;
 import android.database.sqlite.*;
@@ -11,7 +11,7 @@ import java.sql.Date;
 import android.widget.*;
 import android.view.*;
 import java.text.SimpleDateFormat;
-public class bask extends AppCompatActivity implements Constants{
+public class bask extends Activity implements Constants{
 	//private db dbcreate;
 	
 	/*private static String[] FROM_PROD = {COLUMN_ID_PROD,COLUMN_ID_LIST_PROD,

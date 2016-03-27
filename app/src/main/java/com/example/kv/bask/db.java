@@ -3,6 +3,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
+import android.util.Log;
 
 public class db extends SQLiteOpenHelper implements Constants
 
@@ -19,8 +20,12 @@ public class db extends SQLiteOpenHelper implements Constants
 @Override
 	public void onCreate(SQLiteDatabase p1)
 	{
-
-		p1.execSQL("PRAGMA foreign_keys = ON;"); // вкл. внеш. ключ
+		if (!p1.isReadOnly()) {
+			// Enable foreign key constraints
+			p1.execSQL("PRAGMA foreign_keys = ON;");
+			Log.i("TAG", "FOREIGN KEY constraint enabled!");
+		}
+	//	p1.execSQL("PRAGMA foreign_keys = ON;"); // вкл. внеш. ключ
 
 		p1.execSQL("create table "+ DB_TABLE_LIST + " ("
 				+ COLUMN_ID_LIST + " integer primary key autoincrement, "
