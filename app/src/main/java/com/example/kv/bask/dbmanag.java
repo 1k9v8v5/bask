@@ -42,9 +42,14 @@ public class dbmanag implements Constants {
 
     public Cursor getAllDataListID() {
         return base.rawQuery("select max(listID) from list;", null);
-        // base.execSQL("select max(listID) from list;");
     }
-
+	public Cursor getDataListName(String str) {
+        return base.rawQuery("select * from list where listID = ?;",new String[]{str});
+    }
+	public Cursor getDataProductList(String str) {
+		return base.rawQuery("select * from product where listID = ?;",new String[]{str});
+	}
+	
     public void insertProd(String a, String b, String c, String d, String id_unit) {
         base.execSQL("insert into product(" + COLUMN_ID_LIST_PROD + "," + COLUMN_ID_UNIT_PROD + "," + COLUMN_NAME_PROD + ","
                 + COLUMN_COUNT_PROD + "," + COLUMN_PRICE_PROD + ") values(" + id_unit + "," + a + "," + "'" + b + "'" + "," + c + "," + d + ");");

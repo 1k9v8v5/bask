@@ -18,6 +18,8 @@
 			android:label="@string/app_name"></activity>
 		<activity android:name=".addProduct" 
 			android:label="@string/app_name"></activity>
+		<activity android:name=".addProductList" 
+			android:label="@string/app_name"></activity>
     </application>
 
 </manifest>

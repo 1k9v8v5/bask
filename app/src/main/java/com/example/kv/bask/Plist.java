@@ -7,7 +7,6 @@ import android.widget.*;
 public class Plist extends Activity
 {
 	private dbmanag dbcreate;
-	private TextView text;
 	private EditText edit;
 	
 	@Override

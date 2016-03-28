@@ -90,6 +90,7 @@ public class addProduct extends Activity
 				+ posunit + eprice.getText().toString());
 		dbcreate.open();
 		String id_list="";
+		
 		Cursor cursorlistid = dbcreate.getAllDataListID();
 		if (cursorlistid.moveToFirst()) {
 			id_list = cursorlistid.getString(0);
@@ -100,6 +101,11 @@ public class addProduct extends Activity
 		}
 		dbcreate.insertProd(posunit, ename.getText().toString(), ecount.getText().toString(), eprice.getText().toString(),id_list);
 		dbcreate.close();
+		
+		Intent addprodlist = new Intent(addProduct.this,addProductList.class); 
+		addprodlist.putExtra("id",id_list);
+		addprodlist.putExtra("id",id_list);
+		startActivity(addprodlist);
 	}
 	public void onClose(View view)
 	{
