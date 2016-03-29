@@ -25,7 +25,8 @@ public class addProduct extends Activity
 	private EditText ecount;
 	private EditText eprice;
 	private String posunit="";
-
+    private String id_list="";
+	private String name_list="";
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -37,7 +38,9 @@ public class addProduct extends Activity
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
 		String strTime = simpleDateFormat.format(date);
 		textlist = (TextView) findViewById(R.id.listNameExt);
-		textlist.setText(intent.getStringExtra("id"));
+		name_list = intent.getStringExtra("text");
+		textlist.setText(name_list);
+		id_list = intent.getStringExtra("id");
 		tdate = (TextView) findViewById(R.id.listDate);
 		tdate.setText(strTime);
 		ename = (EditText) findViewById(R.id.nameListEditText);
@@ -84,12 +87,13 @@ public class addProduct extends Activity
 				}
 			});
 	}
+	
 	public void onSave(View view)
 	{
 		Log.d(LOG_TAG, ename.getText().toString() + " " + ecount.getText().toString() + " "
 				+ posunit + eprice.getText().toString());
 		dbcreate.open();
-		String id_list="";
+		/*String id_list="";
 		
 		Cursor cursorlistid = dbcreate.getAllDataListID();
 		if (cursorlistid.moveToFirst()) {
@@ -98,12 +102,10 @@ public class addProduct extends Activity
 		}
 		else{
 			cursorlistid.close();
-		}
+		}*/
 		dbcreate.insertProd(posunit, ename.getText().toString(), ecount.getText().toString(), eprice.getText().toString(),id_list);
 		dbcreate.close();
-		
 		Intent addprodlist = new Intent(addProduct.this,addProductList.class); 
-		addprodlist.putExtra("id",id_list);
 		addprodlist.putExtra("id",id_list);
 		startActivity(addprodlist);
 	}

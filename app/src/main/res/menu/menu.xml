@@ -1,0 +1,8 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item"
+        android:title="@string/add_record"/>  
+	<item
+        android:id="@+id/del"
+        android:title="@string/del_record"/>  
+</menu>

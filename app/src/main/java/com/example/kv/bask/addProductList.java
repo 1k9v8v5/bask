@@ -40,6 +40,29 @@ public class addProductList extends Activity
 		list = (ListView) findViewById(R.id.list_product);
 		list.setAdapter(sca);
 		}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.menu, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		// Handle item selection
+		switch (item.getItemId()) {
+			case R.id.item:
+				Intent addprodoflist = new Intent(addProductList.this,addProduct.class);
+				addprodoflist.putExtra("id",id_list);
+				addprodoflist.putExtra("text",name_list);
+				startActivity(addprodoflist);
+				return true;
+			case R.id.del:
+
+				return true;
+			default:
+				return super.onOptionsItemSelected(item);
+		}
+    }
 	protected void onDestroy() {
 		super.onDestroy();
 		// закрываем подключение при выходе

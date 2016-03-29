@@ -39,7 +39,12 @@ public class dbmanag implements Constants {
     public Cursor getAllDataUnit() {
         return base.query(DB_TABLE_UNIT, FROM_UNIT, null, null, null, null, null);
     }
-
+	public Cursor getAllDataList() {
+        return base.rawQuery("select * from list;", null);
+    }
+	public Cursor getAllDataProduct() {
+        return base.rawQuery("select * from product;", null);
+    }
     public Cursor getAllDataListID() {
         return base.rawQuery("select max(listID) from list;", null);
     }
@@ -57,5 +62,14 @@ public class dbmanag implements Constants {
 
     public void insertList(String i) {
         base.execSQL("insert into list(" + COLUMN_DATE_LIST + "," + COLUMN_NAME_LIST + ") values(" + (new java.util.Date().getTime()) + "," + "'" + i + "'" + ");");
+    }
+	public void deleteList() {
+		if (!base.isReadOnly()) {
+			// Enable foreign key constraints
+			base.execSQL("PRAGMA foreign_keys = ON;");
+			Log.i("TAG", "FOREIGN KEY constraint enabled!");
+		}
+        base.execSQL("delete from list;");
+		//base.execSQL("delete from product;");
     }
 }
