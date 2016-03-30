@@ -48,10 +48,10 @@ public class bask extends Activity implements Constants{
 				return true;
 			case R.id.del:
 				dbcreate.open();
-				dbcreate.deleteList();
+				//dbcreate.deleteList();
 				Cursor cursorunit=dbcreate.getAllDataProduct();
 				while(cursorunit.moveToNext()) {
-					int idColIndex = cursorunit.getColumnIndex("listID");;
+					int idColIndex = cursorunit.getColumnIndex("_id");;
 					//	int nameColIndex = cursorunit.getColumnIndex("name");
 					Log.d("t",cursorunit.getString(idColIndex));
 				}
