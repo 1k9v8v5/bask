@@ -11,6 +11,7 @@ import java.sql.Date;
 import android.widget.*;
 import android.view.*;
 import java.text.SimpleDateFormat;
+
 public class bask extends Activity implements Constants{
 	private dbmanag dbcreate;
     @Override
@@ -21,10 +22,24 @@ public class bask extends Activity implements Constants{
 		dbcreate.open();
 		Cursor cursorunit=dbcreate.getAllDataList();
 		while(cursorunit.moveToNext()) {
-			int idColIndex = cursorunit.getColumnIndex("listID");;
+			int idColIndex = cursorunit.getColumnIndex("listID");
 		//	int nameColIndex = cursorunit.getColumnIndex("name");
 			Log.d("t",cursorunit.getString(idColIndex));
 		}
+		cursorunit.close();
+		dbcreate.close();
+		dbcreate.open();
+		Cursor cursorproduct=dbcreate.getDataProductListId("95");
+		while (cursorproduct.moveToFirst())
+		{
+			//Log.d("!!!!",cursorproduct.getString(cursorproduct.getColumnIndex("unitID")));
+			int idColIndex = cursorunit.getColumnIndex("name");
+			Log.d("!!!!",cursorproduct.getString(idColIndex));
+			/*ename.setText(cursorproduct.getString(cursorproduct.getColumnIndex("name")));
+			ecount.setText(cursorproduct.getString(cursorproduct.getColumnIndex("count")));
+			eprice.setText(cursorproduct.getString(cursorproduct.getColumnIndex("price")));*/
+		}
+		cursorproduct.close();
 		dbcreate.close();
 /*        	dbcreate = new db(this);
 		String dname =DB_TABLE_UNIT;
