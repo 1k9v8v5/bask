@@ -52,7 +52,9 @@ public class editProduct extends Activity
 		Cursor cursorproduct=dbcreate.getDataProductListId(_id);
 		while (cursorproduct.moveToNext())
 		{
-			spinnerint = cursorproduct.getColumnIndex("unitID");
+			int unit= cursorproduct.getColumnIndex("unitID");
+			spinnerint = cursorproduct.getInt(unit);
+			//Log.d(LOG_TAG,spinnerint+"!");
 			ename.setText(cursorproduct.getString(cursorproduct.getColumnIndex("name")));
 			ecount.setText(cursorproduct.getString(cursorproduct.getColumnIndex("count")));
 			eprice.setText(cursorproduct.getString(cursorproduct.getColumnIndex("price")));
@@ -69,7 +71,7 @@ public class editProduct extends Activity
 		{
 			int idColIndex = cursorunit.getColumnIndex("unitID");
 			int nameColIndex = cursorunit.getColumnIndex("name");
-			Log.d("y", cursorunit.getString(idColIndex));
+			//Log.d("y", cursorunit.getString(idColIndex));
 			map = new HashMap<String, String>();
 			//map.put(cursorunit.getString(idColIndex),cursorunit.getString(nameColIndex));
 			map.put("unitID", cursorunit.getString(idColIndex));
@@ -81,14 +83,14 @@ public class editProduct extends Activity
 		SimpleAdapter adapter = new SimpleAdapter(this, myArrList,  android.R.layout.simple_spinner_item, 
 												  new String[] {"name"},
 												  new int[] {android.R.id.text1});
-		//   ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+		//ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
 		//CustomAdapter adapter = new CustomAdapter(this, android.R.layout.simple_spinner_item, data);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		adapter.notifyDataSetChanged();
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
         spinner.setAdapter(adapter);
-		Log.d(LOG_TAG,spinnerint+"!");
-		//spinner.setSelection(spinnerint++);
+
+		spinner.setSelection(spinnerint);
 		
 		// устанавливаем обработчик нажатия
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {

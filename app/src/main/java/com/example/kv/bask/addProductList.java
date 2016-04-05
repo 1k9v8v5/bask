@@ -1,4 +1,5 @@
 package com.example.kv.bask;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.app.*;
 import android.view.*;
@@ -11,14 +12,14 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.AdapterView.OnCreateContextMenuListener;
+//import android.widget.AdapterView.OnCreateContextMenuListener;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
 import android.content.Loader;
 import java.util.concurrent.TimeUnit;
 import android.content.Context;
 import android.widget.AdapterView.*;
-public class addProductList extends Activity implements LoaderCallbacks<Cursor>
+public class addProductList extends AppCompatActivity implements LoaderCallbacks<Cursor>
 {
 	private dbmanag dbcreate;
 	private ListView list;
