@@ -10,4 +10,5 @@
 	<string name="hint_namelist">Товар:</string>
 	<string name="hint_countlist">Количество:</string>
 	<string name="hint_pricelist">Цена:</string>
+	<string name="list_record">:*</string>
 </resources>

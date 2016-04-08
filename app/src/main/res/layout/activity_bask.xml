@@ -13,6 +13,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="onButtonClick"
+		android:layout_alignParentLeft="true"
         android:text="@string/add_record">
+    </Button>
+	<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:layout_centerHorizontal="true"
+        android:onClick="onButtonClickList"
+        android:text="@string/list_record">
     </Button>
 </RelativeLayout>

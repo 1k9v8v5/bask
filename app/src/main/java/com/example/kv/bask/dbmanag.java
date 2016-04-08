@@ -47,7 +47,7 @@ public class dbmanag implements Constants
 
 	public Cursor getAllDataList()
 	{
-        return base.rawQuery("select * from list;", null);
+        return base.rawQuery("select listID as _id,* from list;", null);
     }
 	public Cursor getAllDataProduct()
 	{
@@ -101,4 +101,11 @@ public class dbmanag implements Constants
         base.execSQL("delete from product where _id = ?;", new String[]{str});
 		//base.execSQL("delete from product;");
     }
+	
+	/*public void updateProduct(String a,String b, String e){
+		base.execSQL("Update product set " + COLUMN_ID_UNIT_PROD+"="+a + "," + COLUMN_NAME_PROD+"="+"'"+b +"'"+ " where _id= "+e + ";");*/
+	public void updateProduct(String a, String b, String c, String d, String e){
+		base.execSQL("Update product set " + COLUMN_ID_UNIT_PROD+"="+a + "," + COLUMN_NAME_PROD+"="+"'"+b 
+		+"'"+ "," + COLUMN_COUNT_PROD+"="+c + "," + COLUMN_PRICE_PROD+"="+d+" where _id= "+e + ";");
+	}
 }

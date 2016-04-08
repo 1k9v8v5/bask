@@ -6,7 +6,8 @@ import android.content.Intent;
 import android.widget.*;
 import android.database.Cursor;
 import android.util.Log;
-public class Plist extends Activity
+import android.support.v7.app.AppCompatActivity;
+public class Plist extends AppCompatActivity
 {
 	private dbmanag dbcreate;
 	private EditText edit;

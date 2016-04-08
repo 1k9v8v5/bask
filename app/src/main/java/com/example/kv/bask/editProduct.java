@@ -127,7 +127,8 @@ public class editProduct extends Activity
 		 else{
 		 cursorlistid.close();
 		 }*/
-		dbcreate.insertProd(posunit, ename.getText().toString(), ecount.getText().toString(), eprice.getText().toString(), id_list);
+		//dbcreate.updateProduct(posunit, ename.getText().toString(),_id);
+		dbcreate.updateProduct(posunit, ename.getText().toString(), ecount.getText().toString(), eprice.getText().toString(), _id);
 		dbcreate.close();
 		Intent addprodlist = new Intent(editProduct.this, addProductList.class); 
 		addprodlist.putExtra("id", id_list);

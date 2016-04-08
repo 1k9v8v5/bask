@@ -38,7 +38,7 @@ public class bask extends AppCompatActivity implements Constants{
 				//dbcreate.deleteList();
 				Cursor cursorunit=dbcreate.getAllDataProduct();
 				while(cursorunit.moveToNext()) {
-					int idColIndex = cursorunit.getColumnIndex("_id");;
+					int idColIndex = cursorunit.getColumnIndex("_id");
 					//	int nameColIndex = cursorunit.getColumnIndex("name");
 					Log.d("t",cursorunit.getString(idColIndex));
 				}
@@ -52,5 +52,10 @@ public class bask extends AppCompatActivity implements Constants{
 	{
 		Intent plist = new Intent(bask.this,Plist.class);
 		startActivity(plist);
+	}
+	public void onButtonClickList(View view)
+	{
+		Intent basketlist = new Intent(bask.this,BasketList.class);
+		startActivity(basketlist);
 	}
 }
