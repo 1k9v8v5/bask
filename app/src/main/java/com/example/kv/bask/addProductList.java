@@ -29,7 +29,7 @@ public class addProductList extends AppCompatActivity implements LoaderCallbacks
     private static String id_list="";
 	private String name_list="";
 	private String _id = "";
-
+	private String active ="";
 	@Override
     protected void onCreate(Bundle savedInstanceState)
 	{
@@ -37,6 +37,7 @@ public class addProductList extends AppCompatActivity implements LoaderCallbacks
 		setContentView(R.layout.product_list);
 		Intent intent = getIntent();
 		id_list = intent.getStringExtra("id");
+		active = intent.getStringExtra("activ");
 		list = (ListView) findViewById(R.id.list_product);
 		registerForContextMenu(list);
 		dbcreate = new dbmanag(this);
@@ -114,7 +115,14 @@ public class addProductList extends AppCompatActivity implements LoaderCallbacks
 				return true;
 			case R.id.del:
 				dbcreate.deleteList(id_list);
-				getLoaderManager().getLoader(0).forceLoad();
+				if (active.equals("1")){
+					finish();
+				}
+				if (active.equals("2")){
+					getLoaderManager().getLoader(0).forceLoad();		
+					Intent baskveiw = new Intent(addProductList.this, bask.class);
+					startActivity(baskveiw);
+				}
 				return true;
 			default:
 				return super.onOptionsItemSelected(item);

@@ -47,7 +47,7 @@ public class dbmanag implements Constants
 
 	public Cursor getAllDataList()
 	{
-        return base.rawQuery("select listID as _id,* from list;", null);
+        return base.rawQuery("select listID as _id,strftime('%d-%m-%Y %H:%M',date,'unixepoch') as date1,* from list;", null);
     }
 	public Cursor getAllDataProduct()
 	{

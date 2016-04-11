@@ -27,6 +27,7 @@ public class addProduct extends Activity
 	private String posunit="";
     private String id_list="";
 	private String name_list="";
+	private String activ = "2";
 	@Override
     protected void onCreate(Bundle savedInstanceState)
 	{
@@ -62,6 +63,7 @@ public class addProduct extends Activity
 			map.put("name", cursorunit.getString(nameColIndex));
 			myArrList.add(map);
 		}
+		cursorunit.close();
 		dbcreate.close();
 		// адаптер
 		SimpleAdapter adapter = new SimpleAdapter(this, myArrList,  android.R.layout.simple_spinner_item, 
@@ -112,6 +114,7 @@ public class addProduct extends Activity
 		dbcreate.close();
 		Intent addprodlist = new Intent(addProduct.this, addProductList.class); 
 		addprodlist.putExtra("id", id_list);
+		addprodlist.putExtra("activ",activ);
 		startActivity(addprodlist);
 	}
 	public void onClose(View view)
