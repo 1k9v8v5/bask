@@ -21,6 +21,6 @@ public interface Constants
 	public static final String COLUMN_ID_UNIT = "unitID";
 	public static final String COLUMN_NAME_UNIT= "name";
 
-	public static final int DB_VERSION = 24;
+	public static final int DB_VERSION = 25;
 	
 }
