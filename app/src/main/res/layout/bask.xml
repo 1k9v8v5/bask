@@ -11,19 +11,53 @@
 	tools:context="com.example.kv.bask.bask"
 	android:background="#FFFFFF">
 
-	<Button
-		android:text="+"
-		android:id="@+id/baskButton1"
-		android:layout_centerInParent="true"
-		style="@style/button"/>
+	<RelativeLayout
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:layout_centerInParent="true">
 
-	<Button
-		android:text=":*"
-		android:id="@+id/baskButton2"
-		android:layout_toRightOf="@id/baskButton1"
-		android:layout_centerInParent="true"
-		android:layout_marginLeft="10dp"
-		style="@style/button"/>
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:orientation="horizontal"
+			android:id="@+id/baskLinearLayout1"
+			android:layout_centerHorizontal="true">
+
+			<Button
+				android:text="+"
+				android:id="@+id/baskButton1"
+				style="@style/button"/>
+
+			<Button
+				android:text=":"
+				android:id="@+id/baskButton2"
+				android:layout_marginLeft="10dp"
+				style="@style/button"/>
+
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_height="wrap_content"
+			android:layout_width="wrap_content"
+			android:orientation="horizontal"
+			android:layout_centerHorizontal="true"
+			android:layout_marginTop="90dp"
+			android:layout_alignTop="@id/baskLinearLayout1">
+
+			<Button
+				style="@style/button"
+				android:text="-*"
+				android:id="@+id/baskButton3"/>
+
+			<Button
+				android:text="*"
+				style="@style/button"
+				android:layout_marginLeft="10dp"
+				android:id="@+id/baskButton4"/>
+
+		</LinearLayout>
+
+	</RelativeLayout>
 
 </RelativeLayout>
 

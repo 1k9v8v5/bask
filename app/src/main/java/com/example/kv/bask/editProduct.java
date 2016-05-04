@@ -114,25 +114,32 @@ public class editProduct extends Activity
 
 	public void onSave(View view)
 	{
-		Log.d(LOG_TAG, ename.getText().toString() + " " + ecount.getText().toString() + " "
-			  + posunit + eprice.getText().toString());
-		dbcreate.open();
-		/*String id_list="";
+		switch (view.getId())
+		{
+			case R.id.addbuttonlistSave:
+				Log.d(LOG_TAG, ename.getText().toString() + " " + ecount.getText().toString() + " "
+					  + posunit + eprice.getText().toString());
+				dbcreate.open();
+				/*String id_list="";
 
-		 Cursor cursorlistid = dbcreate.getAllDataListID();
-		 if (cursorlistid.moveToFirst()) {
-		 id_list = cursorlistid.getString(0);
-		 Log.d(LOG_TAG,id_list);
-		 }
-		 else{
-		 cursorlistid.close();
-		 }*/
-		//dbcreate.updateProduct(posunit, ename.getText().toString(),_id);
-		dbcreate.updateProduct(posunit, ename.getText().toString(), ecount.getText().toString(), eprice.getText().toString(), _id);
-		dbcreate.close();
-		Intent addprodlist = new Intent(editProduct.this, addProductList.class); 
-		addprodlist.putExtra("id", id_list);
-		startActivity(addprodlist);
+				 Cursor cursorlistid = dbcreate.getAllDataListID();
+				 if (cursorlistid.moveToFirst()) {
+				 id_list = cursorlistid.getString(0);
+				 Log.d(LOG_TAG,id_list);
+				 }
+				 else{
+				 cursorlistid.close();
+				 }*/
+				//dbcreate.updateProduct(posunit, ename.getText().toString(),_id);
+				dbcreate.updateProduct(posunit, ename.getText().toString(), ecount.getText().toString(), eprice.getText().toString(), _id);
+				dbcreate.close();
+				Intent addprodlist = new Intent(editProduct.this, addProductList.class); 
+				addprodlist.putExtra("id", id_list);
+				startActivity(addprodlist);
+
+				break;
+		}
+		
 	}
 	public void onClose(View view)
 	{

@@ -8,10 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 	<style name="button">
-		<item name="android:layout_height">wrap_content</item>
-		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">match_parent</item>
+		<item name="android:layout_width">match_parent</item>
 		<item name="android:textColor">#1A2397</item>
 		<item name="android:background">#D6E2F0</item>
 		<item name="android:padding">30dp</item>
+		<item name="android:layout_weight">1.0</item>
 	</style>
 </resources>

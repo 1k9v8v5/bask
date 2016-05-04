@@ -1,19 +1,65 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
-	<TextView
-		android:id="@+id/name_list_product"
-		android:layout_width="wrap_content"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical">
+
+	<LinearLayout
 		android:layout_height="wrap_content"
-		android:layout_gravity="center_vertical"
-		android:layout_marginLeft="10dp"
-		android:text=" : "
-		android:textSize="18sp">
-	</TextView>
-	<ListView
-		android:id="@+id/list_product"
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content">
-	</ListView> 
+		android:layout_width="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Список:"
+			android:layout_width="wrap_content"
+			android:id="@+id/productlistTextView1"
+			android:textSize="18sp"
+			android:textStyle="bold"/>
+
+		<TextView
+			android:id="@+id/name_list_product"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="left"
+			android:layout_marginLeft="10dp"
+			android:textSize="18sp"
+			android:textStyle="bold">
+
+		</TextView>
+
+	</LinearLayout>
+
+	<View
+		android:layout_height="1dp"
+		android:background="?android:attr/dividerVertical"
+		android:layout_width="match_parent"/>
+
+	<TextView
+		android:layout_height="20dp"
+		android:layout_width="match_parent"/>
+
+	<LinearLayout
+		android:layout_height="match_parent"
+		android:layout_width="wrap_content"
+		android:orientation="horizontal">
+
+		<TextView
+			android:layout_height="wrap_content"
+			android:text="Товар:"
+			android:layout_width="wrap_content"
+			android:textStyle="bold"
+			android:textSize="18sp"/>
+
+		<ListView
+			android:id="@+id/list_product"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content">
+
+		</ListView>
+
+	</LinearLayout>
+
 </LinearLayout>
+

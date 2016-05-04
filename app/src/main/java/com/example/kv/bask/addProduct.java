@@ -14,7 +14,8 @@ import android.widget.Toast;
 import android.database.Cursor;
 import java.util.HashMap;
 import java.util.ArrayList;
-public class addProduct extends Activity
+import android.view.View.OnClickListener;
+public class addProduct extends Activity implements OnClickListener
 {
 	private dbmanag dbcreate;
 	String LOG_TAG = "Log";
@@ -28,11 +29,13 @@ public class addProduct extends Activity
     private String id_list="";
 	private String name_list="";
 	private String activ = "2";
+	Button btnSave;
+	Button btnClose;
 	@Override
     protected void onCreate(Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
-        setContentView(R.layout.product);
+        setContentView(R.layout.product); //нужен другой макет
 		dbcreate = new dbmanag(this);
 		Intent intent = getIntent();
 		//Log.d(LOG_TAG,intent.getStringExtra("id"));
@@ -93,9 +96,33 @@ public class addProduct extends Activity
 				{
 				}
 			});
+		btnSave = (Button) findViewById(R.id.addbuttonlistSave);
+		btnClose = (Button) findViewById(R.id.addbuttonlistClose);
+		btnSave.setOnClickListener(this);
+		btnClose.setOnClickListener(this);
 	}
-
-	public void onSave(View view)
+	public void onClick(View v)
+	{
+		// по id определеяем кнопку, вызвавшую этот обработчик
+		switch (v.getId())
+		{
+			case R.id.addbuttonlistSave:
+				Log.d(LOG_TAG, ename.getText().toString() + " " + ecount.getText().toString() + " "
+					  + posunit + " " + eprice.getText().toString());
+				dbcreate.open();
+				dbcreate.insertProd(posunit, ename.getText().toString(), ecount.getText().toString(), eprice.getText().toString(), id_list);
+				dbcreate.close();
+				Intent addprodlist = new Intent(addProduct.this, addProductList.class); 
+				addprodlist.putExtra("id", id_list);
+				addprodlist.putExtra("activ",activ);
+				startActivity(addprodlist);
+				break;
+			case R.id.addbuttonlistClose:
+				
+				break;
+		}
+	}
+	/*public void onSave(View view)
 	{
 		Log.d(LOG_TAG, ename.getText().toString() + " " + ecount.getText().toString() + " "
 			  + posunit + " " + eprice.getText().toString());
@@ -110,7 +137,7 @@ public class addProduct extends Activity
 		 else{
 		 cursorlistid.close();
 		 }*/
-		dbcreate.insertProd(posunit, ename.getText().toString(), ecount.getText().toString(), eprice.getText().toString(), id_list);
+	/*	dbcreate.insertProd(posunit, ename.getText().toString(), ecount.getText().toString(), eprice.getText().toString(), id_list);
 		dbcreate.close();
 		Intent addprodlist = new Intent(addProduct.this, addProductList.class); 
 		addprodlist.putExtra("id", id_list);
@@ -120,5 +147,5 @@ public class addProduct extends Activity
 	public void onClose(View view)
 	{
 
-	}
+	}*/
 }

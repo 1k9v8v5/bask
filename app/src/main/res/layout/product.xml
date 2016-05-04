@@ -1,60 +1,100 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent" 
-	android:layout_height="wrap_content" android:layout_weight="1">
-	<LinearLayout android:id="@+id/linearLayout1"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+
+	<LinearLayout
+		android:id="@+id/linearLayout1"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"
-		android:orientation="vertical" android:padding="5dp">
-		<TextView android:id="@+id/listName" 
-			android:color="@android:color/black" android:textSize="18sp"
-			android:paddingTop="10dp" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" 
-			android:imeOptions="actionNext" 
-			android:text="@string/listtext"></TextView>	
-		<TextView android:id="@+id/listNameExt" 
-			android:color="@android:color/black" android:textSize="18sp"
-			android:paddingTop="10dp" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" 
-			android:imeOptions="actionNext" ></TextView>	
-		<TextView android:id="@+id/listDate" 
-			android:color="@android:color/black" android:textSize="18sp"
-			android:paddingTop="10dp" android:layout_width="wrap_content"
-			android:layout_height="wrap_content" 
-			android:imeOptions="actionNext" 
-			android:text="@string/listdate"></TextView>	
-		<EditText android:id="@+id/nameListEditText"
+		android:orientation="vertical"
+		android:padding="5dp">
+
+		<TextView
+			android:id="@+id/listName"
+			android:color="@android:color/black"
+			android:textSize="18sp"
+			android:paddingTop="10dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionNext"
+			android:text="@string/listtext"
+			android:textStyle="bold"/>
+
+		<TextView
+			android:id="@+id/listNameExt"
+			android:color="@android:color/black"
+			android:textSize="18sp"
+			android:paddingTop="10dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionNext"/>
+
+		<TextView
+			android:id="@+id/listDate"
+			android:color="@android:color/black"
+			android:textSize="18sp"
+			android:paddingTop="10dp"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionNext"
+			android:text="@string/listdate"/>
+
+		<EditText
+			android:id="@+id/nameListEditText"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content" 
-			android:imeOptions="actionNext" android:hint="@string/hint_namelist"
-			android:inputType="textPersonName|textCapWords"></EditText>
-		<EditText android:id="@+id/countListEditText"
+			android:layout_height="wrap_content"
+			android:imeOptions="actionNext"
+			android:hint="@string/hint_namelist"
+			android:inputType="textPersonName|textCapWords"/>
+
+		<EditText
+			android:id="@+id/countListEditText"
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content" 
-			android:imeOptions="actionNext" android:hint="@string/hint_countlist"
-			android:inputType="phone"></EditText>
+			android:layout_height="wrap_content"
+			android:imeOptions="actionNext"
+			android:hint="@string/hint_countlist"
+			android:inputType="phone"/>
+
 		<Spinner
 			android:id="@+id/spinner"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
+
 		</Spinner>
-		<EditText android:layout_width="wrap_content" 
-			android:id="@+id/priceEditText" 
+
+		<EditText
+			android:layout_width="wrap_content"
+			android:id="@+id/priceEditText"
 			android:layout_height="wrap_content"
-			android:inputType="numberDecimal" android:hint="@string/hint_pricelist">
+			android:inputType="numberDecimal"
+			android:hint="@string/hint_pricelist">
+
 		</EditText>
-		<Button android:id="@+id/addbuttonlistSave" 
+
+		<Button
+			android:id="@+id/addbuttonlistSave"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="15dp"
-			android:onClick="onSave"
+			
 			android:layout_gravity="center_horizontal"
-			android:text="@string/add_record"></Button>
-		<Button android:id="@+id/addbuttonlistClose" 
+			android:text="@string/add_record"
+			style="@style/button"/>
+
+		<Button
+			android:id="@+id/addbuttonlistClose"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="15dp"
-			android:onClick="onClose"
+			
 			android:layout_gravity="center_horizontal"
-			android:text="@string/add_close"></Button>
+			android:text="@string/add_close"
+			style="@style/button"/>
+
 	</LinearLayout>
-</ScrollView>
+
+</LinearLayout>
+
